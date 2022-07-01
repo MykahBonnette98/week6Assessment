@@ -7,18 +7,23 @@ const {shuffleArray} = require('./utils')
 app.use(express.json())
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'public/index.html'))
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+})
+app.get('/styles', function(req, res) {
+    res.sendFile(path.join(__dirname, '/public/index.css'))
+})
+app.get('/js', function(req, res) {
+    res.sendFile(path.join(__dirname, '/public/index.js'))
 })
 
-var Rollbar = require('rollbar')
+
+var Rollbar = require("rollbar");
 var rollbar = new Rollbar({
-  accessToken: '4051f6ecf8024241a476848a2aaf972a',
+  accessToken: '4270f88e901245b8b5d38e0ac0e8a1a8',
   captureUncaught: true,
-  captureUnhandledRejections: true,
-})
-
-
-rollbar.info('Students List was requested')
+  captureUnhandledRejections: true
+});
+rollbar.info('Info')
 rollbar.error('error')
 rollbar.critical('critial')
 rollbar.warning('warning')
