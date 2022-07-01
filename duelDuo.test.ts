@@ -25,14 +25,17 @@ test('Title shows up when page loads', async () => {
 })
 
 test('clicking Draw button', async () => {
-  const choices = await driver.findElement(By.id('choices')).click()
+  await driver.findElement(By.id('draw')).click()
+  const choices = await driver.findElement(By.id('choices'))
   const displayed = await choices.isDisplayed()
-  expect(displayed).toBeTruthy(true)
+  expect(displayed).toBe(true)
    
 })
 
 test('Add to duo', async () => {
-    const player-duo = await driver.findElement(By.id('player-duo')).click()
-    const displayed = await player-duo.isDisplayed()
-    expect(displayed).toBeTruthy()
+  await driver.findElement(By.id('player-duo')).click()
+  const addDuo = await driver.findElement(By.id('addDuo'))
+  const displayed = await addDuo.isDisplayed()
+  expect(displayed).toBe(true)
+
 })
