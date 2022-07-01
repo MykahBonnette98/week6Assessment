@@ -31,8 +31,10 @@ rollbar.warning('warning')
 
 app.get('/api/robots', (req, res) => {
     try {
+        rollbar.info('Player robots')
         res.status(200).send(botsArr)
     } catch (error) {
+        rollbar.error('error no bots')
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
     }
@@ -85,6 +87,7 @@ app.get('/api/player', (req, res) => {
     try {
         res.status(200).send(playerRecord)
     } catch (error) {
+        rollbar.critical('cant duel')
         console.log('ERROR GETTING PLAYER STATS', error)
         res.sendStatus(400)
     }

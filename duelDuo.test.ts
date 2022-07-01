@@ -37,5 +37,5 @@ test('Add to duo', async () => {
   const addDuo = await driver.findElement(By.id('addDuo'))
   const displayed = await addDuo.isDisplayed()
   expect(displayed).toBe(true)
-
+  await driver.findElement(By.id('duel')).click()
 })
